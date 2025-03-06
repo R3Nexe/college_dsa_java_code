@@ -1,5 +1,5 @@
 
-public class Permutations {
+public class a1q4_recursion {
 
     // Recursive function to generate permutations
     private static void permute(char[] arr, int l, int r) {

@@ -1,5 +1,5 @@
 
-public class sumdigit {
+public class a1q5 {
 
     /* public static int sumdig(int num){
         int sum=0;

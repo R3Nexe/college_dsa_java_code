@@ -1,7 +1,7 @@
 
 import java.util.Random;
 
-public class MatrixOnes {
+public class a1hq5 {
 
     public static void main(String[] args) {
         int[][] matrix = new int[4][4];
