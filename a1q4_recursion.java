@@ -1,4 +1,9 @@
 
+
+
+//dont use this if you dont know recursion
+
+
 public class a1q4_recursion {
 
     // Recursive function to generate permutations
