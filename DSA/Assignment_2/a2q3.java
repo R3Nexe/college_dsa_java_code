@@ -1,42 +1,55 @@
 
-class Product {
+class Book {
+    private int bookId;
+    private double price;
+    private int quantity;
+    private static double totalAmount = 0;
 
-    int prodId;
-    double price;
-    int quantity;
-    static double totalPrice = 0;
-
-    void display() {
-        System.out.println("Product ID: " + prodId);
-        System.out.println("Price per unit: " + price + "Rs");
-        System.out.println("Quantity: " + quantity);
-        System.out.println("Total for this product: " + (price * quantity) + "Rs");
-        System.out.println("-------------------------------");
-    }
-
-    Product(int prodId, double price, int quantity) {
-        this.prodId = prodId;
+    // Parameterized constructor
+    public Book(int bookId, double price, int quantity) {
+        this.bookId = bookId;
         this.price = price;
         this.quantity = quantity;
+        totalAmount += getTotalCost(); // update static variable
+    }
 
-        totalPrice += price * quantity;
+    // Calculate total cost for this book
+    public double getTotalCost() {
+        return price * quantity;
+    }
+
+    // Display book details
+    public void displayDetails() {
+        System.out.println("Book ID: " + bookId);
+        System.out.println("Price: " + price);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Total Cost: " + getTotalCost());
+        System.out.println("---------------------------");
+    }
+
+    // Static method to get total amount spent
+    public static double getTotalAmount() {
+        return totalAmount;
     }
 }
-
-public class a2q3 {
-
+public class Main {
     public static void main(String[] args) {
-        Product prod[] = new Product[5];
-        for (int i = 0; i < prod.length; i++) {
-            prod[0] = new Product(1, 22, 4);
-            prod[1] = new Product(2, 12, 2);
-            prod[2] = new Product(3, 2, 5);
-            prod[3] = new Product(4, 220, 1);
-            prod[4] = new Product(5, 99, 7);
+        // Create 5 different books
+        Book[] books = new Book[5];
+        books[0] = new Book(101, 250.50, 2);
+        books[1] = new Book(102, 150.00, 1);
+        books[2] = new Book(103, 325.75, 3);
+        books[3] = new Book(104, 499.99, 1);
+        books[4] = new Book(105, 120.00, 4);
+
+        // Display details of each book
+        System.out.println("Book Purchase Details:");
+        System.out.println("=======================");
+        for (Book book : books) {
+            book.displayDetails();
         }
-        for (int i = 0; i < 5; i++) {
-            prod[i].display();
-        }
-        System.out.println("total price : " + Product.totalPrice + "Rs");
+
+        // Display total amount spent
+        System.out.println("Total Amount Spent on All Books: ₹" + Book.getTotalAmount());
     }
 }
