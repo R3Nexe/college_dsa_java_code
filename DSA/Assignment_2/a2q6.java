@@ -1,54 +1,43 @@
+// Base class
+class Vehicle {
+    String model;
+    int year;
 
-abstract class Marks {
-
-    double markICP;
-    double markDSA;
-    double percentage;
-
-    abstract void getMarks();
-}
-
-class CSE extends Marks {
-
-    double algoDesign;
-
-    CSE(double markICP, double markDSA, double algoDesign) {
-        this.markICP = markICP;
-        this.markDSA = markDSA;
-        this.algoDesign = algoDesign;
-    }
-
-    @Override
-    void getMarks() {
-        System.out.println("percentage= " + (markDSA + markICP + algoDesign) / 90 * 100);
-
-    }
-
-}
-
-class NonCSE extends Marks {
-
-    double enggMechanics;
-
-    NonCSE(double markICP, double markDSA, double enggMechanics) {
-        this.markICP = markICP;
-        this.markDSA = markDSA;
-        this.enggMechanics = enggMechanics;
-    }
-
-    @Override
-    void getMarks() {
-
-        System.out.println("percentage= " + (markDSA + markICP + enggMechanics) / 90 * 100);
+    // Constructor
+    Vehicle(String model, int year) {
+        this.model = model;
+        this.year = year;
     }
 }
 
-public class a2q6 {
+// Derived class
+class Car extends Vehicle {
+    int carId;
+    double price;
 
+    // Constructor
+    Car(String model, int year, int carId, double price) {
+        super(model, year); // Call the base class constructor
+        this.carId = carId;
+        this.price = price;
+    }
+
+    // Method to display car details
+    void carDisplay() {
+        System.out.println("Vehicle Model: " + model);
+        System.out.println("Vehicle Year: " + year);
+        System.out.println("Car ID: " + carId);
+        System.out.println("Car Price: $" + price);
+    }
+}
+
+// Main class
+public class Main {
     public static void main(String[] args) {
-        CSE s1 = new CSE(28, 20, 15);
-        NonCSE s2 = new NonCSE(27, 15, 23);
-        s1.getMarks();
-        s2.getMarks();
+        // Create Car object
+        Car myCar = new Car("Tesla Model S", 2022, 101, 79999.99);
+
+        // Display car and vehicle details
+        myCar.carDisplay();
     }
 }
